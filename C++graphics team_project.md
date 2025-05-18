@@ -1,3 +1,6 @@
+# 미로 탈출 게임 - C++ 코드 (Raylib 사용)
+
+```cpp
 #include "raylib.h"
 
 // 각 칸의 크기는 60, 배열의 크기는 10칸
@@ -19,10 +22,8 @@ int maze[map][map] = {
     {1,1,1,1,1,1,1,0,0,2} 
 };
 
-
 int playerX = 0;    // 플레이어의 x위치 좌표 값
-int playerY = 0;    // 플레이어의 y위치  좌표 값
-
+int playerY = 0;    // 플레이어의 y위치 좌표 값
 
 // 기본 상태는 게임을 해야하기 때문에 클리어가 되지 않은 상태
 bool gameClear = false;
@@ -33,11 +34,11 @@ int main() {
 
     while (!WindowShouldClose()) {      
         // 이동 입력 처리
-         // 게임 클리어 전까지는 플레이어에게 이동을 입력 받음
+        // 게임 클리어 전까지는 플레이어에게 이동을 입력 받음
         if (!gameClear) {
 
             // (IsKeyPressed()) 특정 키를 입력해는지 확인하는 함수
-            //  (playerX,playerY < mapSize - 1) 배열의 범위를 벗어나지 않도록
+            // (playerX,playerY < mapSize - 1) 배열의 범위를 벗어나지 않도록
             // (maze[playerY][playerX + 1] != 1) 오른쪽 칸이 벽(1)이 아니면 이동 가능
             // (playerX > 0) 왼쪽끝이 아니면 이동가능
 
@@ -76,8 +77,8 @@ int main() {
             }
         }
 
-        //  플레이어 표시
-        //  (playerX,playerY * cell + cell / 2) 현재 플레이어가 있는 칸의 중심 계산을 위한 식
+        // 플레이어 표시
+        // (playerX,playerY * cell + cell / 2) 현재 플레이어가 있는 칸의 중심 계산을 위한 식
         DrawCircle(playerX * cell + cell / 2, playerY * cell + cell / 2, cell / 4, RED);
 
         // 게임 클리어시에 띄울 메시지 창
@@ -91,3 +92,4 @@ int main() {
     CloseWindow();
     return 0;
 }
+```
